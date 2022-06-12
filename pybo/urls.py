@@ -6,14 +6,11 @@ app_name = 'pybo'
 
 urlpatterns = [
     # base
-    path('question/list/', base_views.index, name='index'),
-    path('question/list/<str:category_name>/', base_views.index, name='index'),
-    path('question/detail/<int:question_id>/', base_views.detail, name='detail'),
+    path('', base_views.index, name='index'),
+    path('<int:question_id>/', base_views.detail, name='detail'),
 
     # question
-
     path('question/create/', question_views.question_create, name='question_create'),
-    path('question/craete/<str:category_name>/', question_views.question_create, name='question_create'),
     path('question/modify/<int:question_id>/', question_views.question_modify, name='question_modify'),
     path('question/delete/<int:question_id>/', question_views.question_delete, name='question_delete'),
     path('question/vote/<int:question_id>/', question_views.question_vote, name='question_vote'),
